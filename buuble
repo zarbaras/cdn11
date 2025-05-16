@@ -1,0 +1,51 @@
+<!-- Tanıtıcı mesajlar -->
+<div class="custom-chat-intro">
+  <div class="custom-bubble"> Selam! 👋 Ben ChocoBot, bana her şeyi sorabilirsiniz.</div>
+  <div class="custom-bubble delay">Ayrıca sipariş, ürünler ve kampanyalar hakkında da bilgi alabilirsiniz! 🤖</div>
+</div>
+
+<style>
+.custom-chat-intro {
+  position: fixed;
+  bottom: 90px; /* Chat simgesinin üstü */
+  right: 25px;    /* Chat simgesi sağdaysa hizalama */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 99999;
+}
+
+.custom-bubble {
+  background-color: white;
+  padding: 10px 14px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  font-size: 14px;
+  max-width: 280px;
+  animation: slideIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.custom-bubble.delay {
+  animation-delay: 1.8s;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+</style>
+
+<script>
+  // 6 saniye sonra balonları kaldırmak için
+  setTimeout(() => {
+    const chatIntro = document.querySelector('.custom-chat-intro');
+    if (chatIntro) chatIntro.style.display = 'none';
+  }, 6000);
+</script>
